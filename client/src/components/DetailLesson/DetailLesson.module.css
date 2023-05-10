@@ -1,0 +1,100 @@
+
+.conteinerTodo{
+    background-color: #013565;
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.h1{
+    margin-left: 130px;
+    font-family:'Montserrat-Bold';
+    color: #ffc300;
+    font-size: 8rem;
+}
+
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family:'Montserrat-Bold';
+    color:#ffc300;
+    font-size: 2rem;
+    
+}
+
+.txt{
+    font-family:'Montserrat-Bold';
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 70px;
+    margin-bottom: 200px;
+    
+}
+
+.img{
+ width: 180px; 
+ margin-top: 20px;
+margin-left: 35px;
+}
+
+.fondoBrad{
+    background-color: #ffc300;
+    width: 260px;
+    height: 360px;
+    margin-left: 40px;
+}
+
+.instructor{
+    font-family:'Montserrat-Bold';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.6rem;
+}
+
+.contentHorarios{
+    background-color: #013565;
+    height: 200px;
+    width: 800px;
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+.fonditoImgyLetras{
+    background-color: #013565;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.mujerBox{
+    width: 630px;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.fondoMujer{
+    background-color: #ffc300;
+    width: 650px;
+    height: 380px;   
+}
+
+.conjuntoMujerycaja{
+    background-color: #013565;
+    width: 800px;
+}
