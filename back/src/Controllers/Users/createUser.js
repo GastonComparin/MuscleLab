@@ -1,9 +1,10 @@
 const { User } = require("../../db");
+const { Op } = require("sequelize");
 
 let createUser = async (id, fullName, password, email, phone, isMonitor) => {
-  const foundedUser = await User.findOne({ where: { fullName: fullName } });
+  const foundedUser = await User.findOne({ where: { email: email } });
   if (foundedUser) {
-    throw new Error("That user already exist");
+    throw new Error("That email has already been registered ");
   } else {
     try {
       const newUser = await User.create({
