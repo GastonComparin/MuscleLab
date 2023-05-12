@@ -44,6 +44,7 @@ const {
   Membership,
   User,
   StatusMemberships,
+  ExercisesType
 } = sequelize.models;
 
 // Aca vendrian las relaciones
@@ -55,11 +56,13 @@ Membership.belongsToMany(User, { through: "membership_user" });
 User.hasOne(StatusMemberships, { foreignKey: "user_id" });
 StatusMemberships.hasOne(User);
 
+Lessons.belongsToMany(ExercisesType, {through:"Lessons_Type"});
+ExercisesType.belongsToMany(Lessons, {through: "Lessons_Type"});
+
 User.belongsToMany(Lessons, { through: "User_Lesson" });
 Lessons.belongsToMany(User, { through: "User_Lesson" });
 
 Lessons.hasOne(LessonDetail);
-
 LessonDetail.belongsTo(Lessons);
 
 Lessons.belongsToMany(BranchOffice, { through: "Lesson_BranchOffice" });

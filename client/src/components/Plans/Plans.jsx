@@ -6,7 +6,6 @@ import checkIcon from "../../assets/icons/check.png"
 
 const Plans = () =>{
     return(
-        <section id= 'planes'>
             <div className={style.BGContainer}>
                 <div className={style.TitleContainer}>
                     <h1>¡Alcanza tu mejor version</h1>
@@ -94,7 +93,6 @@ const Plans = () =>{
                     </div>
                 </div>
             </div>
-        </section>
     )
 }
 

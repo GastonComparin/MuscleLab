@@ -7,7 +7,7 @@ const getAllUsers = require("../Handlers/Users/getAllUsersHandler");
 const getAllMonitor = require("../Handlers/Users/getAllMonitorHandler");
 const loginUser = require("../Handlers/Users/loginUserHandler");
 const getUserDetail = require("../Handlers/Users/getUserDetailHandler");
-const getDeletedUsers = require("../Handlers/Users/getDeletedusersHandler");
+const getDeletedUsers = require("../Handlers/Users/getDeletedUsersHandler");
 const restoreDeletedUser = require("../Handlers/Users/restoreDeletedUserHandler");
 
 server.get("/", getAllUsers);

@@ -21,7 +21,7 @@ const SignUp=()=>{
             <br />
             
     
-            <button className={styles.button} >sign Up</button>
+            <button className={styles.button3} >sign Up</button>
             
         </div>
     </div>

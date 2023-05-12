@@ -19,6 +19,11 @@ module.exports=(sequelize)=>{
             validate:{
                 isAlpha:true
             }
+        },
+        deletedAt:{
+            type:DataTypes.DATE,
+            allowNull:true,
+            defaultValue:null
         }
     },{timestamps:false})
 }

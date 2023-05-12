@@ -1,4 +1,7 @@
-
+.BGContainer
+{
+    padding-top: 6rem;
+}
 
 .TitleContainer h1{
     color: #ffc300;

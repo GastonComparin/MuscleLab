@@ -14,7 +14,9 @@ const Home = () => {
         <>
             <Gallery handleOnclick ={handleOnclick}/>
             <ExtraInfo/>
-            <Plans ref={plansRef}/>
+            <section ref={plansRef}>
+                <Plans/>
+            </section>
         </>
     )
 

@@ -19,7 +19,7 @@ const fetchAllUsers = createAsyncThunk(
 const fetchUserByID = createAsyncThunk(
     'users/fetchUserByID', async () => {
         try {
-            const response = await axios.get(`${URL}+${PORT}/users/:id`);
+            const response = await axios.get(`${URL}${PORT}/users/:id`);
             return response.data
         } catch (error){
             // revisar como el back envia los errores
@@ -78,8 +78,8 @@ const usersSlice = createSlice ({
     }
 })
 
-export const selectAllUsers = (state) => state.users;
-export const selectUserByID = (state) => state.user;
-export const selectStatus = (state) => state.status;
-export const selectError = (state) => state.error;
+export const selectAllUsers = (state) => state.users.users;
+export const selectUserByID = (state) => state.users.user;
+export const selectStatus = (state) => state.users.status;
+export const selectError = (state) => state.users.error;
 export default usersSlice.reducer;

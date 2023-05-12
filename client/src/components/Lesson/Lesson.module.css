@@ -44,3 +44,10 @@
     transition: .3s;
 
 }
+.InfoContainer button:hover{
+    background-color: #FFAF00;
+}
+
+.InfoContainer button:active{
+    background-color: #ffc300;
+}

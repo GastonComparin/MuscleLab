@@ -3,20 +3,21 @@ import style from './NavBar.module.css';
 import iconMan from './../../assets/icons/man-silhouette.png';
 import iconWeight from '../../assets/icons/dumbbell.png';
 import { Link } from 'react-router-dom';
-import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 
 const NavBar = ()=>{
 
+    const handleClickLogo = () => {
+        window.location.href = '/';
+    };
 
      return (
         <>
         <nav className={style.nav}>
-            <div className={style.IconContainer}>
+            <div className={style.IconContainer} onClick={handleClickLogo}>
                 <img className={style.IconMan} src={iconMan} alt='Icono silueta de hombre' />
                 <h2>Muscle Lab</h2>
-                <img className={style.IconWeight} src={iconWeight} alt='Icono de pesa' />
-                
+                <img className={style.IconWeight} src={iconWeight} alt='Icono de pesa' />               
             </div>
             <div className={style.OpcionsContainer}>
                 <Link to = {'/sedes'}>
@@ -39,11 +40,11 @@ const NavBar = ()=>{
             <button className={style.btnPlanes}>Planes</button>
 
             <div className={style.LogOpcions}>
-                <Link to={Login}> 
-                <button className={style.btnInicioSesion}>Iniciar sesión</button>
+                <Link to={'/crearclase'}> 
+                    <button className={style.btnInicioSesion}>Inicia sesión</button>
                 </Link> 
                 <Link to={SignUp}>
-                <button className={style.btnRegistro}>Regístrate</button>
+                    <button className={style.btnRegistro}>Regístrate</button>
                 </Link>
             </div>
             
@@ -55,57 +56,3 @@ const NavBar = ()=>{
 
 
 export default NavBar;
-
-
-
-
-
-// /* Logo */
-
-// position: absolute;
-// width: 184px;
-// height: 82px;
-// left: -4px;
-// top: 12px;
-
-
-
-// /* muscular-man-flexing-silhouette 1 */
-
-// position: absolute;
-// width: 77px;
-// height: 81px;
-// left: -4px;
-// top: 13px;
-
-// background: url(muscular-man-flexing-silhouette.png);
-
-
-// /* Muscle Lab */
-
-// position: absolute;
-// width: 117px;
-// height: 75px;
-// left: 63px;
-// top: 12px;
-
-// font-family: 'Montserrat';
-// font-style: normal;
-// font-weight: 800;
-// font-size: 30px;
-// line-height: 37px;
-
-// color: #FFFFFF;
-
-
-
-// /* dumbbell 1 */
-
-// position: absolute;
-// width: 37px;
-// height: 37px;
-// left: 131px;
-// top: 45px;
-
-// background: url(dumbbell.png);
-

@@ -25,7 +25,7 @@ const NewLessons= ()=>{
         <h3>Description</h3>
         <input id="description" type="text" class="form-control"name="description" placeholder="Description..."></input>
 
-        <button className={styles.button}>Create Lesson</button>
+        <button className={styles.button1}>Create Lesson</button>
         </div>
         </div>
     )

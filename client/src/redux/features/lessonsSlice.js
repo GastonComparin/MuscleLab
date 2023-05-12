@@ -1,26 +1,28 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { PORT, URL, pending, rejected, fulfilled } from "../../utils/constants";
+import { sortAtoZ,sortZtoA, sortEasiestToHardest, sortHardestToEasiest } from "../../utils/sorterUtils";
 import lessons from "../../utils/lessons";
 import  axios  from 'axios';
 
 
 
-const fetchLessons = createAsyncThunk(
-    'lessons/fetchLessons', async () => {
+const fetchAllLessons = createAsyncThunk(
+    'lessons/fetchAllLessons', async () => {
+        
         try {
-            const response = await axios.get(`${URL}+${PORT}/lessons`);
+            const response = await axios.get(`${URL}${PORT}/lessons`);
+
             return response.data
         } catch (error){
-            // revisar como el back envia los errores
             throw new Error (error.response) 
         }
 
     }
 )
-const fetchLesonsByID = createAsyncThunk(
-    'lessons/fetchLessonsByID', async () => {
+const fetchLessonsByID = createAsyncThunk(
+    'lessons/fetchAllLessonsByID', async (id) => {
         try {
-            const response = await axios.get(`${URL}+${PORT}/lessons/:id`);
+            const response = await axios.get(`${URL}${PORT}/lessons/:id`);
             return response.data
         } catch (error){
             // revisar como el back envia los errores
@@ -32,7 +34,7 @@ const fetchLesonsByID = createAsyncThunk(
 
 
 const initialState = {
-    lessons: lessons,
+    lessons: [],
     lesson: {},
     status: 'idle',
     error: ''
@@ -43,34 +45,47 @@ const lessonsSlice = createSlice({
     initialState,
     reducers: {
         // aquí van las otras acciones
+        orderFromAtoZ: (state) => {
+            state.lessons = sortAtoZ(state.lessons);
+        },
+        orderFromZtoA: (state) => {
+            state.lessons = sortZtoA(state.lessons);
+        },
+        orderFomHardestToEasiest: (state) => {
+            state.lessons = sortHardestToEasiest(state.lessons);
+        },
+        orderFromEasiestToHardest: (state) => {
+            state.lessons = sortEasiestToHardest(state.lessons);
+        }
+
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchLessons.fulfilled, (state, action) => {
+            .addCase(fetchAllLessons.fulfilled, (state, action) => {
                 state.error = '';
                 state.status = fulfilled;
                 state.lessons = action.payload;
             }
             )
-            .addCase(fetchLessons.pending, (state, action) => {
+            .addCase(fetchAllLessons.pending, (state, action) => {
                 state.status = pending;
                 state.error = '';
             })
-            .addCase(fetchLessons.rejected, (state, action) => {
+            .addCase(fetchAllLessons.rejected, (state, action) => {
                 state.status = rejected;
                 //revisar sintaxis del error
                 state.error = action.error;
             })
-            .addCase(fetchLesonsByID.fulfilled, (state, action) => {
+            .addCase(fetchLessonsByID.fulfilled, (state, action) => {
                 state.lesson = action.payload;
                 state.error = '';
                 state.status = fulfilled;
             })
-            .addCase(fetchLesonsByID.pending, (state, action) => {
+            .addCase(fetchLessonsByID.pending, (state, action) => {
                 state.status = pending;
                 state.error = '' 
             })
-            .addCase (fetchLesonsByID.rejected, (state, action) => {
+            .addCase (fetchLessonsByID.rejected, (state, action) => {
                 state.status = rejected;
                 //revisar sintaxis del error
                 state.error = action.error
@@ -79,8 +94,10 @@ const lessonsSlice = createSlice({
 })
 
 
-export const selectAllLessons = (state) => state.lessons;
-export const selectStatus = (state) => state.status;
-export const selectError = (state) => state.error;
+export const selectAllLessons = (state) => state.lessons.lessons;
+export const selectLesson = (state) => state.lessons.lesson;
+export const selectStatus = (state) => state.lessons.status;
+export const selectError = (state) => state.lessons.error;
 export default lessonsSlice.reducer;
-export { fetchLessons, fetchLesonsByID }
+export const { orderFromAtoZ, orderFromZtoA, orderFomHardestToEasiest, orderFromEasiestToHardest } = lessonsSlice.actions;
+export { fetchAllLessons, fetchLessonsByID }

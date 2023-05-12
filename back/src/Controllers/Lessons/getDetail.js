@@ -1,9 +1,5 @@
 const {Lessons, LessonDetail}=require('../../db');
 
-const getLessons= async ()=>{
-    const lessons= await Lessons.findAll();
-    return lessons;
-}
 const getDetailLesson= async (id)=>{
     const lesson= await Lessons.findAll({where:{id:id}});
     const detail= await LessonDetail.findAll({where:{lessonId:id}});
@@ -20,6 +16,5 @@ const getDetailLesson= async (id)=>{
 }
 
 module.exports={
-    getLessons,
     getDetailLesson
 }
