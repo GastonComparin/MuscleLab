@@ -1,27 +1,52 @@
-import styles from './SignUp.module.css'
+import styles from './SignUp.module.css'    
+import axios from 'axios'
+import React, {useState, useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignUp=()=>{
+    const dispatch= useDispatch();
+
+
+    const [form, setForm] = useState({
+        fullName: "",
+        email:"",
+        phone:"",
+        password:"",
+        isMonitor:"",
+        })
+
+
+        const handleChange =(e)=>{
+            setForm({
+                ...form,
+                [e.target.name]: e.target.value
+        })}
+
+        const handleSubmit=(e)=>{
+            e.preventDefault();
+            dispatch( axios.post('http://localhost:3001/users/create'))
+        }
 
     return(
 
         <div className={styles.container}>
         <div className={styles.log}>
-            <h1>Create Acount</h1>
+            <h1>Crear Cuenta</h1>
             <br />
-            <h3>Name</h3>
-            <input id="name" type="text" class="form-control"name="name" placeholder="Name..."></input>
-            <h3>Phone</h3>
-            <input id="phone" type="text" class="form-control"name="phone" placeholder="Phone"></input>
-            <h3>Email</h3>
-            <input id="email" type="text" class="form-control"name="email" placeholder="Email.."></input>
-            <h3>Password</h3>
-            <input id="password" type="text" class="form-control"name="password" placeholder="Password..."></input>
-            <h3> Repeat password</h3>
-        <input id="repeat password" type="text" class="form-control"name=" repeat password" placeholder="Repeat password..."></input>
-            <br />
+            <label htmlFor="FullName">Nombre completo</label>
+                <input type="text" name="fullname" value={form.fullName} onChange={handleChange} />
+
+                <label htmlFor="Email">Email</label>
+                <input type="text" name="email" value={form.email} onChange={handleChange} />
+
+                <label htmlFor="Phone">Telefono</label>
+                <input type="text" name="phone" value={form.phone} onChange={handleChange} />
+
+                <label htmlFor="password">Contraseña</label>
+                <input type="text" name="password" value={form.password} onChange={handleChange} />
             
     
-            <button className={styles.button3} >sign Up</button>
+            <button className={styles.button3} onChange={handleSubmit} >sign Up</button>
             
         </div>
     </div>
