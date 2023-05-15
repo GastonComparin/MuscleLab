@@ -8,13 +8,6 @@ module.exports = (sequelize) => {
             primaryKey:true,
             allowNull: false
         },
-        effort: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlpha: true
-            }
-        },
         goals: {
             type: DataTypes.STRING,
             allowNull: false
@@ -24,10 +17,14 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         scheduleDays: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull:false
+        },
+        scheduleHourStart: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        scheduleHours: {
+        scheduleHourFinish: {
             type: DataTypes.STRING,
             allowNull: false
         }

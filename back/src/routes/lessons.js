@@ -13,11 +13,11 @@ server.put('/', async (req,res)=>{
 })
 
 server.get('/', getAllLessonsHandler);
-server.get('/:id', getDetailLessonHandler);
 server.get('/deleted', getDeletedLessons)
 server.post("/create", createNewLesson);
 server.delete("/delete/:id", deleteMyLesson);
-server.put('/restore', restoreDeletedLesson)
+server.put('/restore/:id', restoreDeletedLesson)
+server.get('/:id', getDetailLessonHandler);
 
 module.exports = server;
 

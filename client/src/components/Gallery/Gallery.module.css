@@ -3,6 +3,7 @@
     width: 100vw;
     padding-top: 7.3rem;
     background-color: black;
+    cursor: pointer;
 }
 
 .SlideShow {
@@ -104,4 +105,60 @@
     width: fit-content;
     display: inline;
     font-size: 3rem;
+}
+@media screen and (max-width: 1366px){
+    .DivContainer{
+        padding-top: 7.2rem;
+    }
+    .Slide img {
+        width: 120rem;
+    }
+
+    .SlideShow {
+        height: 40rem;
+    }
+
+    .TextImg h2{
+        font-size: 6.5rem;
+    }
+
+    .btnPlanes{
+        top: 33rem;
+    }
+
+    .Arrows{
+        top: 43rem;
+    }
+
+    .ArrowLeft {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    .ArrowRight{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    .Arrows h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 1280px){
+    .SlideShow {
+        height: 37rem;
+    }
+
+    .TextImg h2{
+        font-size: 6rem;
+    }
+
+    .btnPlanes{
+        top: 29rem;
+    }
+
+    .Arrows{
+        top: 40rem;
+    }
 }

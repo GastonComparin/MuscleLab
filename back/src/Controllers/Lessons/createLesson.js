@@ -1,17 +1,18 @@
 const { Lessons, LessonDetail, ExercisesType } = require("../../db");
-let createLesson = async (id, name, effort, goals, description, scheduleDays, scheduleHours, image, types) => {
+let createLesson = async (id, name, effort, goals, shortDescription, description, scheduleDays, scheduleHours, image, types) => {
   const foundedClass = await Lessons.findOne({ where: { name: name } });
-  console.log(types);
   if (foundedClass) {
-    throw new Error("That class already exist");
+    throw new Error("La clase con ese Nombre ya existe");
   } else {
-    if(!effort || !goals || !name  || !description || !scheduleDays || !scheduleHours || !types){
-      throw new Error("Missing data");
+    if(!effort || !goals || !name  || !description || !scheduleDays || !scheduleHours || !types || !shortDescription){
+      throw new Error("Falta informacion");
     }
     const newLesson = await Lessons.create({
       id,
       name,
-      image
+      image,
+      effort,
+      shortDescription
     });
     types.map(async(type)=>{
       const t= await ExercisesType.findOne({
@@ -20,13 +21,15 @@ let createLesson = async (id, name, effort, goals, description, scheduleDays, sc
       });
       newLesson.addExercisesType(t?.id);
     });
+    let scheduleHourFinish=(scheduleHours.split('-'))[1];
+    let scheduleHourStart=(scheduleHours.split('-'))[0];
     const details = await LessonDetail.create({
       id,
-      effort,
       goals,
       description,
       scheduleDays,
-      scheduleHours,
+      scheduleHourStart,
+      scheduleHourFinish,
       lessonId: newLesson.id
     });
     return `id: ${newLesson.id} name: ${newLesson.name} details: ${details.effort}`;

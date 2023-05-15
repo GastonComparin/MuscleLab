@@ -64,3 +64,34 @@
     background-image: url(../../assets/images/home/mujer-sentada.jpg);
     background-size: cover;
 }
+
+@media screen and (max-width: 1366px) {
+
+    .Title{
+        font-size: 2.5rem;
+    }
+    .BoxLeft{
+        width: 80%
+    }
+
+    .BoxLeft h2{
+        width: 36rem;
+        font-size: 4.6rem;
+    }
+
+    .BoxLeft img{
+        left: 20%;
+        height: 6.7rem;
+        width: 6.7rem;
+    }
+
+    .BoxLeft h3{
+        font-size: 1.2rem;
+        width: 31.5rem;
+    }
+
+    .BoxRight{
+        width: 100%;
+        background-position: -15rem 0;
+    }
+}

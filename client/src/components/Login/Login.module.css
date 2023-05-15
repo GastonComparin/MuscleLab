@@ -1,67 +1,77 @@
-
-.container{
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uMI5fxu1cRxJH4Kuj5NfXpYVMbYA4yFM0Q&usqp=CAU');
-    background-repeat: no-repeat;
-    background-size: cover; 
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width:100vw;
-    gap: 60px;
+.BGContainer{
+    padding-top: 12rem;
 }
-input{
-    outline: 0;
-    background-color: #FFC300;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-.button4 {
 
-    background-color: #FFC300;
-    border: none;
-    padding: 1rem;
+.Container{
+    border: solid .1rem #b8b8b8 ;
+    width: fit-content;
+    padding: 2rem;
+    margin: 0 auto;
+    border-radius: 3%;
+    text-align: center;
+    min-height: 20rem;
+}
+
+.Container h1{
+    font-family: 'Montserrat-Medium';
+    font-size: 1.4rem;
+    color: #202124;
+    font-weight: 400;
+}
+
+.ForgotPassword{
+    font-family: 'Montserrat-SemiBold';
+    text-align: start;
+    margin-top: 0;
     font-size: 1rem;
-    width: 100%;
-    border-radius: 1rem;
-    color: black;
-    box-shadow: 0 0.4rem #dfd9d9;
+    font-weight: 100;
+    color: #FFAF00;
+    margin-bottom: 3rem;
     cursor: pointer;
-    height: 2.8rem;
-   }
-   
-   .button4:active {
-    color: white;
-    box-shadow: 0 0.2rem #dfd9d9;
-    transform: translateY(0.2rem);
-   }
-   
-   .button4:hover:not(:disabled) {
-    background: #003566;
-    color: white;
-    text-shadow: 0 0.1rem #bcb4b4;
-   }
-   
-   .button4:disabled {
-    cursor: auto;
-    color: grey;
-   }
-
-.log{
-    font-size: larger;
-    background-color: #8233FF;
-    display: grid;
-   text-align: center;
-    width: 25%;
-    height: auto;
-    padding: 5em;
-    border-style: solid;
-    border-radius: 1em;
-
 }
+
+.Description{
+    margin-bottom: 2.5rem;
+    font-family: 'Montserrat-Regular';
+    font-size: 1rem;
+    color: #202124;
+    font-weight: 550;
+}
+
+.Container input{
+    border: 0.01rem #b8b8b8 solid;
+    background-color: white;
+    border-radius: .4rem;
+}
+
+.ButtonLogIn{
+    display: block;
+    margin: 0 auto;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 1rem;
+    padding: .3rem;
+    border: 0;
+    border-radius: .3rem;
+    cursor: pointer;
+    color: white;
+    background-color: #ffc300;
+    width: 8rem;
+    margin-bottom: 1rem;
+}
+
+.ButtonCreate{
+    display: block;
+    color: #FFAF00;
+    background-color: transparent;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 1rem;
+    padding: 0;
+    padding-top: .3rem;
+    border: 0;
+    cursor: pointer;
+    width: 10rem;
+    margin: 0 auto;
+}
+
+
+

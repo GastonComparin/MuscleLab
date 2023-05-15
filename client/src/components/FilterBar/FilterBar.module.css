@@ -40,8 +40,11 @@
     font-size: 17px;
     cursor: pointer;
 }
+.BtnOptionActive {
+    background-color: #ffc300;
+}
 
-.BtnOption1{
+.BtnOptionType{
     padding: .3rem;
     text-align: center;
     width: 10rem;
@@ -55,6 +58,24 @@
     font-weight: 100;
     font-size: 17px;
     cursor: pointer;
+    transition: .25s;
+}
+
+.BtnActive{
+    color: white;
+    background-color: #ffb300;
+}
+.DropMenuIntensityContainer{
+    margin: 0;
+    margin-top: 1.6rem;
+    position: absolute;
+    z-index: 9998;
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: .2s;
+    padding-top: 1rem;
+    box-shadow: #646464 .1rem .1rem 1rem;
 }
 
 .DropMenuContainer{
@@ -67,7 +88,22 @@
     visibility: hidden;
     transition-delay: .2s;
     padding-top: 1rem;
-    box-shadow: grey .1rem .1rem 1rem;
+    box-shadow: #646464 .1rem .1rem 1rem;
+}
+
+.DropMenuIntensity{
+    margin: 0;
+    z-index: 9999;
+    display: grid;
+    background-color: white;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    opacity: 1;
+    visibility: hidden;
+    transition-delay: .0s;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+    cursor: auto;
 }
 
 .DropMenu{
@@ -78,14 +114,14 @@
     gap: 1.7rem;
     grid-template-columns: repeat(3,1fr);
     opacity: 1;
-    visibility: visible;
+    visibility: hidden;
     transition-delay: .0s;
     padding-left: 1.4rem;
     padding-right: 1.4rem;
     cursor: auto;
 }
 
-.BtnOption1:hover .DropMenuContainer{
+.BtnOptionType:hover .DropMenuContainer, .BtnOptionType:hover .DropMenuIntensityContainer{
     margin: 0;
     margin-top: 1.6rem;
     position: absolute;
@@ -93,8 +129,15 @@
     background-color: white;
     opacity: 1;
     visibility: visible;
-    transition-delay: .0s;
+    display: block;
+    transition-delay: .2s;
 }
+
+.BtnOptionType:hover .DropMenu, .BtnOptionType:hover .DropMenuIntensity{
+    visibility: visible;
+    transition-delay: 0s;
+}
+
 
 .DropMenuBtn{
     border: 0;
@@ -118,7 +161,7 @@
     background-color: #ffe185;
 }
 
-.FilterButton{
+.DeleteButton{
     background-color: #ffc300;
     display: block;
     width: 100%;
@@ -129,16 +172,61 @@
     margin: 0;
     text-align: center;
     border: 0;
-    margin-top: 3rem;
+    margin-top: 2rem;
     cursor: pointer;
     transition: .2s;
 }
 
-.FilterButton:hover{
+.DeleteButton:hover{
     background-color: #ffb300;
 }
 
-.FilterButton:active{
+.DeleteButton:active{
     background-color: #ffe185;
 }
 
+.Active {
+    background-color: #ffc300;
+}
+
+.Trash{
+    height: 2.5rem;
+    width: 2.5rem;
+    display: none;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.TrashActive{
+    display: inline-block;
+}
+
+.FilterBtn{
+    padding: .2rem;
+    width: 12rem;
+    margin-bottom: 1.5rem;
+    background-color: #ffc300;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Montserrat-Semibold', sans-serif;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.FilterBtn:hover{
+    background-color: #ffb300;
+}
+
+.FilterBtn:active{
+    background-color: #ffe185;
+}
+
+
+@media screen and (max-width: 1366px){
+    .DropMenuContainer{
+        right: 9%;
+    }
+}

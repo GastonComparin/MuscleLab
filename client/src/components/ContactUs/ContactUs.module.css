@@ -3,7 +3,7 @@
   min-height: 100vh;
   padding-top: 100px;
   padding-bottom: 100px;
-  background-image: linear-gradient(175deg, #eee 50%, #ffc300 50%, #ffc300);
+  background-image: linear-gradient(175deg, #ffff 50%, #ffc300 50%, #ffc300);
 }
 .container {
   max-width: 1280px;
@@ -12,7 +12,7 @@
   padding-right: 32px;
 }
 
-h1 {
+.Title {
   color: #666;
   font-size: 36px;
   text-transform: uppercase;
@@ -20,29 +20,28 @@ h1 {
   margin-bottom: 16px;
 }
 
-p {
+.sectionContact p {
   color: #888;
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 32px;
 }
 
-form {
+.sectionContact form {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16px;
-  background-color: #fff;
+  background-color: #ffff;
   padding: 32px;
   border-radius: 16px;
   box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.2);
 }
 
-.formGroup label .formElement{
+.formGroup label .formElement {
   grid-column: 1 / -1;
-
 }
 
-label {
+.sectionContact label {
   display: block;
   margin-bottom: 5px;
   color: #1a1a1a;
@@ -54,17 +53,16 @@ label {
   appearance: none;
   outline: none;
   border: none;
-
   display: block;
   width: 100%;
-
   border-radius: 8px;
   padding: 12px 16px;
   background-color: #f3f3f3;
   transition: 0.4s;
 }
 
-input{
+
+input {
   background-color: #888;
 }
 
@@ -80,19 +78,26 @@ textarea {
   width: fit-content;
   justify-content: center;
   justify-self: center;
-  
 }
 
-.submitGroup>input{
+.submitGroup > input {
+  height: 1.5rem;
+  color: #ffffff;
   background-color: #ffc300;
-  font-size: 0.9rem;
-  font-weight: 600;
+  border: 0;
+  border-radius: 0.4rem;
+  width: 10rem;
+  font-family: "Montserrat-Bold";
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-right: 3%;
+  line-height: 2px;
 }
 
-.submitGroup>input:hover{
-  background-color: transparent;
-  border: 1px solid black;
-  color: #ffc300;
+.submitGroup > input:hover {
+  color: #fff;
+  background-color: #ffaf00;
   font-weight: bold;
   transform: scale(1.1);
 }

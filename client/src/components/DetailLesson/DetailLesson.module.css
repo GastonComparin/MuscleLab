@@ -1,19 +1,25 @@
 
 .conteinerTodo{
-    background-color: #013565;
-    height: 300px;
-    width: 100%;
+    padding-top: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    margin: 0 auto;
+    background-color:white;
+    height: fit-content;
+    width:115rem;
     display: flex;
     flex-direction: column;
-
+    align-items: center;
+    box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
 }
 
 
 .h1{
-    margin-left: 130px;
     font-family:'Montserrat-Bold';
     color: #ffc300;
-    font-size: 8rem;
+    font-size: 7rem;
 }
 
 
@@ -23,39 +29,37 @@
     align-items: center;
     justify-content: center;
     font-family:'Montserrat-Bold';
-    color:#ffc300;
+    color:#013565;
     font-size: 2rem;
     
 }
 
 .txt{
-    font-family:'Montserrat-Bold';
-    color: white;
-    font-size: 2rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 100px;
-    margin-left: 70px;
-    margin-bottom: 200px;
-    
+    font-family: 'Montserrat-regular', sans-serif;
+    color:#ffffff;
+    margin: auto auto;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .img{
  width: 180px; 
  margin-top: 20px;
-margin-left: 35px;
+margin-left: 27px;
+border-radius: .4rem;
 }
 
 .fondoBrad{
+    display: block;
     background-color: #ffc300;
-    width: 260px;
-    height: 360px;
-    margin-left: 40px;
+    width: 230px;
+    height: 100%;
+    border-radius: .4rem;
+    float: right;
+    margin-left: 10%;
 }
-
 .instructor{
-    font-family:'Montserrat-Bold';
+    font-family: 'Montserrat-regular', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,36 +69,105 @@ margin-left: 35px;
 }
 
 .contentHorarios{
-    background-color: #013565;
-    height: 200px;
-    width: 800px;
-    margin-top: 2rem;
-    margin-left: 1rem;
+    display: inline-block;
+    background-color: white;
+    height: 340px;
+    width: 600px;
+    margin: 0;
 }
 
-.fonditoImgyLetras{
-    background-color: #013565;
-    display: flex;
-    justify-content: space-around;
-    
+.fondoinstrYHor{
+    background-color: #ffffff;
+    width: 100%;
 }
-
-.mujerBox{
-    width: 630px;
-    height: 360px;
+.imagenDeporte{
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 10px;
-    padding-left: 10px;
+    border-radius: 1rem;
+    padding: .3rem;
+    float: left;
+    background-color: #ffc300;
 }
 
 .fondoMujer{
     background-color: #ffc300;
-    width: 650px;
-    height: 380px;   
+    width: 25rem;
+    height: 20rem;   
+    padding: 0;
+    float: left;
+    border-radius: 1rem;
+}
+.fondoMujer img{
+    width: 100%;
+    height: 100%;
+    border: solid 1px #ffc300;
+    border-radius: 1rem;
+    padding: .3rem;
 }
 
 .conjuntoMujerycaja{
-    background-color: #013565;
-    width: 800px;
+    display: inline-block;
+    width: fit-content;
+    margin-right: 13.7%;
+}
+
+.detalleparrafo{
+    background-color:#013565 ;
+    width: 100%;
+    min-height: 7rem;
+    display: flex;    
+    margin-top: 30px;
+}
+
+.button{
+    margin: auto 0;
+    height: 3rem;
+    color: #ffffff;
+    background-color:#013565;
+    border: 0;
+    border-radius: .4rem;
+    width: 15rem;
+    font-family:'Montserrat-Bold';
+    font-size: 2rem;
+    cursor: pointer;
+    transition: .2s;
+    margin-left: 2rem;
+    margin-top: 3rem;
+}
+
+.button:hover{
+background-color:#002141;
+}
+
+.button3{
+    margin: auto 0;
+    height: 5rem;
+    color: #ffffff;
+    background-color: #ffc300;
+    border: 0;
+    border-radius: .5rem;
+    width: 30rem;
+    font-family:'Montserrat-Bold';
+    font-size: 2rem;
+    cursor: pointer;
+    transition: .2s;
+    margin-right: 3%;
+    
+}
+
+.button3:hover{
+    background-color: #FFAF00;
+}
+
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+    margin-left: 3%;
+    padding-right: 3rem;
 }

@@ -20,10 +20,21 @@ module.exports=(sequelize)=>{
                 isAlpha:true
             }
         },
+        effort: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isNumeric: true
+            }
+        },
         deletedAt:{
             type:DataTypes.DATE,
             allowNull:true,
             defaultValue:null
+        },
+        shortDescription:{
+            type:DataTypes.STRING,
+            allowNull:false
         }
     },{timestamps:false})
 }

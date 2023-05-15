@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    mode: 'Light'
+    mode: 'Light',
+    plansClicked: false,
 }
 
 
@@ -14,11 +15,15 @@ const utilsSlice = createSlice ({
         },
         lightMode: (state) => {
             state.mode = 'Light'
+        },
+        setPlansCLick: (state, {payload}) => {
+            state.plansClicked = payload;
         }
     }
 })
 
-export const selectMode = (state) => state.mode;
+export const selectMode = (state) => state.utils.mode;
+export const selectPlansClicked = (state) => state.utils.plansClicked;
 
 export default utilsSlice.reducer;
-export const {darkMode, lightMode} = utilsSlice.actions;
+export const {darkMode, lightMode, setPlansCLick} = utilsSlice.actions;

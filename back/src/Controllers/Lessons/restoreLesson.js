@@ -1,11 +1,11 @@
-const { Lesson } = require("../../db");
+const { Lessons } = require("../../db");
 
 let restoreLesson = async (id) => {
-  let toRestore = await Lesson.findOne({ where: { id: id } });
+  let toRestore = await Lessons.findOne({ where: { id: id } });
   if (!toRestore) {
-    throw new Error("Lesson not found");
+    throw new Error("Clase no encontrada");
   }
   await toRestore.update({ deletedAt: null });
-  return `Lesson ${toRestore.name} has been restored`;
+  return `La clase ${toRestore.name} ha sido restaurada`;
 };
 module.exports = restoreLesson;

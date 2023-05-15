@@ -63,6 +63,7 @@
     cursor: pointer;
     transition: .2s;
     margin-right: 3%;
+    line-height: 2.8rem;
 
 }
 
@@ -122,4 +123,24 @@
 .LogOpcions .button{
     width: 9rem;
     height: 2rem;
+}
+@media screen and (max-width: 1366px){
+
+    .nav{
+        height: 5rem;
+    }
+    .OpcionsContainer{
+        gap: 3.5rem;
+    }
+    .btnPlanes{
+        width: 10rem;
+        font-size: 1.7rem;
+    }
+    .Navbutton{
+        font-size: 1.15rem;
+        font-size: 1.06rem;
+    }
+    .btnRegistro{
+        margin-left: 1.5rem;
+    }
 }

@@ -17,7 +17,6 @@ const getTypes = async () => {
             'Movilidad',
             'Estiramiento',
             'Relajación',
-
         ];
         types.forEach(async (t) => {
             await ExercisesType.findOrCreate({ where: { name: t } });

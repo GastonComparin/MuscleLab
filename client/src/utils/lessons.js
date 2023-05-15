@@ -8,8 +8,8 @@ const lessons = [
     {
       id: 1,
       name: "Zumba",
-      effort: "maximum",
-      goals: "body ton",
+      effort: "Maximum",
+      goals: "Body ton",
       description: "Trabajar el cuerpo completo funciona. sal de tu rutina de siempre y obtén verdaderos resultados.",
       image: "https://d500.epimg.net/cincodias/imagenes/2019/05/02/lifestyle/1556809482_591063_1556811610_noticia_normal.jpg",
       scheduleDays: [

@@ -5,6 +5,6 @@ let deleteLesson = async (id) => {
     throw new Error("Lesson not found");
   }
   await toDelete.update({deletedAt: new Date()});
-  return `Lesson ${toDelete.name} has been marked as deleted`;
+  return `La clase ${toDelete.name} ha sido eliminada correctamente, para restaurar vea /deleted`;
 };
 module.exports = deleteLesson;

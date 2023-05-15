@@ -61,16 +61,16 @@ const Gallery = ({handleOnclick}) => {
                         <h2 className={style.TextImg}>Supera tus límites</h2>
                         <button className={`${style.btnPlanes} ${style.TextImg}`} onClick={handleOnclick}>Mira nuestros planes</button>
                     </div>
-                    <img src={images[0]} alt='Imagen de hombre haciendo ejercicio' className={style.ImageContainer1}/>
+                    <img src={images[0]} alt='Imagen de hombre haciendo ejercicio' className={style.ImageContainer1} onClick={handleOnclick}/>
 
                 </div>
 
                 <div className={style.Slide}>
-                    <img src={images[1]} alt='Imagen de mujer levantando pesas' className={style.ImageContainer2}/>
+                    <img src={images[1]} alt='Imagen de mujer levantando pesas' className={style.ImageContainer2} onClick={handleOnclick}/>
                 </div>
 
                 <div className={style.Slide}>
-                    <img src={images[2]} alt='Imagen de hombre con los brazos extendidos' className={style.ImageContainer3}/>
+                    <img src={images[2]} alt='Imagen de hombre con los brazos extendidos' className={style.ImageContainer3} onClick={handleOnclick}/>
                 </div>
 
             </div>

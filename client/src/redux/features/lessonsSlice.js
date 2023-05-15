@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { PORT, URL, pending, rejected, fulfilled } from "../../utils/constants";
 import { sortAtoZ,sortZtoA, sortEasiestToHardest, sortHardestToEasiest } from "../../utils/sorterUtils";
-import lessons from "../../utils/lessons";
+import { cleaner } from "../../utils/cleanerUtils";
 import  axios  from 'axios';
 
 
@@ -22,7 +22,7 @@ const fetchAllLessons = createAsyncThunk(
 const fetchLessonsByID = createAsyncThunk(
     'lessons/fetchAllLessonsByID', async (id) => {
         try {
-            const response = await axios.get(`${URL}${PORT}/lessons/:id`);
+            const response = await axios.get(`${URL}${PORT}/lessons/${id}`);
             return response.data
         } catch (error){
             // revisar como el back envia los errores
@@ -31,7 +31,12 @@ const fetchLessonsByID = createAsyncThunk(
 
     }
 )
-
+export const cacheMiddleware = store => next => action => {
+    if (action.type === 'lessons/fetchAllLessons/fulfilled' && store.getState().lessons.lessons.length > 0) {
+        return Promise.resolve();
+    }
+    return next(action);
+};
 
 const initialState = {
     lessons: [],
@@ -56,15 +61,55 @@ const lessonsSlice = createSlice({
         },
         orderFromEasiestToHardest: (state) => {
             state.lessons = sortEasiestToHardest(state.lessons);
-        }
+        },
+        sortByType: (state,action) => {
+            const typesArray = action.payload;
+            const lessons = state.lessons;
+            const filteredLessons = lessons.filter((lesson) => {
+                const lessonTypes = lesson.exercisesTypes;
+                return typesArray.every((type) => lessonTypes.includes(type))});
 
+            state.lessons = filteredLessons;
+            if (filteredLessons.length === 0) state.error = `No se encontraron clases con los tipos: ${typesArray.join(', ')}.`;
+            if (filteredLessons.length > 0) state.error = '';
+            
+        },
+        sortByIntensity: (state,action) => {
+            const intensity = action.payload;
+            const lessons = state.lessons;
+            const filteredLessons = lessons.filter((lesson) => {
+                return intensity.some((int) => int === lesson.effort)
+            });
+            state.lessons = filteredLessons;
+            if (filteredLessons.length === 0) state.error = `No se encontraron clases con los filtros seleccionados: ${intensity.join(', ')}`;
+            if (filteredLessons.length > 0) state.error = '';
+        },
+
+        sortByIntensityandType: (state, action) => {
+            const {selectedTypes, selectedIntensities} = action.payload;
+            const lessons = state.lessons;
+            const filteredLessons = lessons.filter((lesson) => {
+                const lessonTypes = lesson.exercisesTypes;
+                return selectedTypes.every((type) => lessonTypes.includes(type)) && selectedIntensities.some((int) => int === lesson.effort)});
+            
+            state.lessons = filteredLessons;
+            if (filteredLessons.length === 0) state.error = `No se encontraron clases de tipo de ejercicio ${selectedTypes.join(', ')} y de intensidad ${selectedIntensities.join(', ')}`;
+            if (filteredLessons.length > 0) state.error = '';
+            
+        },
+        clearLessons: (state) => {
+            state.lessons = [];
+            state.error = '';
+        }
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchAllLessons.fulfilled, (state, action) => {
+            .addCase(fetchAllLessons.fulfilled, (state, {payload}) => {
+                const cleanedData = cleaner(payload);
+                const orderedData = sortAtoZ(cleanedData);
                 state.error = '';
                 state.status = fulfilled;
-                state.lessons = action.payload;
+                state.lessons = orderedData;
             }
             )
             .addCase(fetchAllLessons.pending, (state, action) => {
@@ -76,8 +121,8 @@ const lessonsSlice = createSlice({
                 //revisar sintaxis del error
                 state.error = action.error;
             })
-            .addCase(fetchLessonsByID.fulfilled, (state, action) => {
-                state.lesson = action.payload;
+            .addCase(fetchLessonsByID.fulfilled, (state, {payload}) => {
+                state.lesson = payload;
                 state.error = '';
                 state.status = fulfilled;
             })
@@ -99,5 +144,5 @@ export const selectLesson = (state) => state.lessons.lesson;
 export const selectStatus = (state) => state.lessons.status;
 export const selectError = (state) => state.lessons.error;
 export default lessonsSlice.reducer;
-export const { orderFromAtoZ, orderFromZtoA, orderFomHardestToEasiest, orderFromEasiestToHardest } = lessonsSlice.actions;
+export const { orderFromAtoZ, orderFromZtoA, orderFomHardestToEasiest, orderFromEasiestToHardest, sortByType, sortByIntensityandType, sortByIntensity, clearLessons } = lessonsSlice.actions;
 export { fetchAllLessons, fetchLessonsByID }

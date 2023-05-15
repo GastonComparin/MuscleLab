@@ -1,25 +1,24 @@
-import styles from './Login.module.css' 
+import style from './Login.module.css' 
 
 
- const Login=() =>{
-
-
+ const Login = () => {
     return(
-<div className={styles.container}>
-    <div className={styles.log}>
-        <h1>User login</h1>
-        <br />
-        <h3>Username</h3>
-        <input id="usuario" type="text" class="form-control"name="username" placeholder="Username..."></input>
-        <h3>Password</h3>
-        <input id="contraseña" type="text" class="form-control"name="password" placeholder="Password..."></input>
-        <br />
-        
+        <div className= {style.BGContainer}>
+            <div className= {style.Container}>
+                <h1>Inicia Sesión</h1>
+                <h2 className={style.Description}>Para continuar con MuscleLab</h2>
 
-        <button className={styles.button4}> LOGIN </button>
-        
-    </div>
-</div>
+                <input type="text" name="" id="" placeholder="Usuario o Correo"/>
+
+                <input type="text" name="" id="" placeholder= "Contraseña"/>
+
+                <h2 className={style.ForgotPassword}>¿Olvidaste tu contraseña?</h2>
+
+                <button className={style.ButtonLogIn}>Iniciar sesión</button>
+
+                <button className= {style.ButtonCreate}>Crea una cuenta</button>
+            </div>
+        </div>
     )
 }
 
