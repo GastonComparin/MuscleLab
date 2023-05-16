@@ -21,7 +21,7 @@ const Dashboard = () => {
 
     let text = "Esta accion no se podra revertir!\nPulse OK o Cancelar.";
     if (window.confirm(text) === true) {
-      fetch("http://localhost:3001/lessons/delete/" + id, { method: "DELETE" })
+      fetch("https://musclelabii.onrender.com/lessons/delete/" + id, { method: "DELETE" })
         .then((response) => setServerResponse(response))
         .catch((error) => setServerResponse(error));
 

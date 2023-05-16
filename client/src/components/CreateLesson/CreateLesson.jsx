@@ -53,7 +53,7 @@ const CreateLesson = () => {
       alert("Debe completar los campos obligatorios y corregir los errores.");
     } else {
       axios
-      .post("http://localhost:3001/lessons/create", form)
+      .post("https://musclelabii.onrender.com/lessons/create", form)
       .then((res) => {
         alert("Lesson creada correctamente");
       })

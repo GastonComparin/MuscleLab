@@ -2,15 +2,19 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL } = process.env;
 
-const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
-  {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+const sequelize = new Sequelize(`${DATABASE_URL}`, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false // En entornos de producción, debes configurar esto en `true` y proporcionar el certificado adecuado
+    }
   }
-);
+});
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -44,7 +48,7 @@ const {
   Membership,
   User,
   StatusMemberships,
-  ExercisesType
+  ExercisesType,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
@@ -56,8 +60,8 @@ Membership.belongsToMany(User, { through: "membership_user" });
 User.hasOne(StatusMemberships, { foreignKey: "user_id" });
 StatusMemberships.hasOne(User);
 
-Lessons.belongsToMany(ExercisesType, {through:"Lessons_Type"});
-ExercisesType.belongsToMany(Lessons, {through: "Lessons_Type"});
+Lessons.belongsToMany(ExercisesType, { through: "Lessons_Type" });
+ExercisesType.belongsToMany(Lessons, { through: "Lessons_Type" });
 
 User.belongsToMany(Lessons, { through: "User_Lesson" });
 Lessons.belongsToMany(User, { through: "User_Lesson" });
