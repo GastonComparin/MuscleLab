@@ -1,68 +1,145 @@
-
-.container{
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uMI5fxu1cRxJH4Kuj5NfXpYVMbYA4yFM0Q&usqp=CAU');
-    background-repeat: no-repeat;
-    background-size: cover; 
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width:100vw;
-    gap: 60px;
-}
-input{
-    outline: 0;
-    
-    background-color:#FFC300;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-.button3 {
-
-    background-color: #FFC300;
-    border: none;
-    padding: 1rem;
-    font-size: 1rem;
-    width: 100%;
-    border-radius: 1rem;
-    color: black;
-    box-shadow: 0 0.4rem #dfd9d9;
-    cursor: pointer;
-    height: 2.8rem;
-   }
-   
-   .button3:active {
-    color: white;
-    box-shadow: 0 0.2rem #dfd9d9;
-    transform: translateY(0.2rem);
-   }
-   
-   .button3:hover:not(:disabled) {
-    background: #003566;
-    color: white;
-    text-shadow: 0 0.1rem #bcb4b4;
-   }
-   
-   .button3:disabled {
-    cursor: auto;
-    color: grey;
-   }
-    
-
-.log{
-    font-size: larger;
-    background-color: #8233FF;
+    width: 100vw;
+    padding-top: 20rem;
+    margin-bottom: 15rem;
+  }
+  .container h1 {
+    color: #666;
+    font-size: 36px;
+  }
+  .container p {
+    color: #888;
+    font-size: 18px;
+   margin-bottom: 32px;
+  }
+  .FormContainer {
     display: grid;
-   text-align: center;
-    width: 25%;
-    height: auto;
-    padding: 5em;
-    border-style: solid;
-    border-radius: 1em;
-
-}
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.2);
+    width: 50rem;
+  }
+  
+  .DaysContainer {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr) ;
+  }
+  .DaysContainer p {
+    text-align: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: .6rem;
+    margin-bottom: .5rem;
+  }
+  .DaysContainer input {
+    margin-top: 1rem;
+    margin-bottom: .2rem;
+  }
+  .TypesContainer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .TypesContainer p {
+    text-align: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: .6rem;
+    margin-bottom: .5rem;
+  }
+  .TypesContainer input {
+    margin-top: 1rem;
+    margin-bottom: .2rem;
+  }
+  .individual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  
+  }
+  .individual input {
+    background-color: #f3f3f3;
+  }
+  
+  .HourContainer{
+    display: inline-block;  
+    width: fit-content;
+  }
+  
+  .HourContainer1{
+    float: left;
+    margin-left: 20%;
+  }
+  
+  .HourContainer2{
+    float:right;
+    margin-right: 20%;
+  }
+  .IndividualHora {
+    border-bottom: solid .3rem #f3f3f3;
+    padding-bottom: 2rem;
+  
+  }
+  
+  .Options {
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .Label {
+    display: flex;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 800;
+    margin-right: auto;
+  }
+  .BtnSubmit{
+    margin: 0 auto;
+    height: 3rem;
+    color: #ffffff;
+    background-color: #ffc300;
+    border: 0;
+    border-radius: .4rem;
+    width: 15rem;
+    font-family:'Montserrat-Bold';
+    font-size: 2rem;
+    cursor: pointer;
+    transition: .2s;
+    line-height: 2.8rem;
+  
+  }
+  .BtnSubmit:hover{
+    background-color: #FFAF00;
+  }
+  
+  .BtnSubmit:active{
+    background-color: #ffc300;
+  }
+  .BottomLine {
+    border-bottom: solid .3rem #f3f3f3;
+    padding-bottom: 2rem;
+  }
+  
+  select {
+    width: 100%;
+    height: 2rem;
+    border-radius: .4rem;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+    padding: 0 .5rem;
+    font-size: 1rem;
+    font-family: 'Montserrat-Regular';
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }

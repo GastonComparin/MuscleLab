@@ -13,6 +13,7 @@ import Nosotros from './components/Nosotros/Nosotros';
 import Dashboard from './components/Dashboard/Dashboard';
 import CreateLesson from "./components/CreateLesson/CreateLesson";
 import Sedes from './components/Sedes/Sedes';
+import ContactUs from './components/ContactUs/ContactUs'
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
       <Route path= '/dashboard' element={<Dashboard/>}/>
       <Route path="/create" element={<CreateLesson />} />
       <Route path = '/sedes' element= {<Sedes/>}/>
+      <Route path = '/sign-up' element = {<SignUp/>}/>
+      
 
         
     </Routes>
