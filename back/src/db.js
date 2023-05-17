@@ -48,7 +48,7 @@ const {
   Membership,
   User,
   StatusMemberships,
-  ExercisesType,
+  ExercisesType
 } = sequelize.models;
 
 // Aca vendrian las relaciones

@@ -2,7 +2,7 @@ const { ExercisesType } = require('../../db')
 
 const getTypes = async () => {
     let loaded = await ExercisesType.findAll();
-    console.log(loaded);
+    
     if (loaded.length===0) {
         let types = [
             'Fuerza',

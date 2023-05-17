@@ -1,4 +1,4 @@
-const { Lessons, LessonDetail, ExercisesType } = require("../../db");
+const { Lessons, LessonDetail, ExercisesType, Goals} = require("../../db");
 const getTypes = require("../Types/getTypes")
 let createLesson = async (id, name, effort, goals, shortDescription, description, scheduleDays, scheduleHours, image, types) => {
   /** Validations To Create*/

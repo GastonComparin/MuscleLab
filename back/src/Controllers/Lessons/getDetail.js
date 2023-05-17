@@ -11,7 +11,7 @@ const getDetailLesson = async (id) => {
     },
     where: { id: id },
   });
-  console.log(lesson[0].dataValues.exercisesTypes);
+  
   const types = lesson[0].dataValues.exercisesTypes.map((e) => {
     return e.dataValues.name;
   });
