@@ -8,14 +8,20 @@ const userLogin = async (email, password) => {
   }
   let toLogin = await User.findOne({ where: { email: email } });
   if (!toLogin) {
-    return { success: false, message: "No se encontró un usuario con ese email" };
+    return {
+      success: false,
+      message: "No se encontró un usuario con ese email",
+    };
   } else {
     const match = await bcryptjs.compare(password, toLogin.password);
     if (match) {
       const token = generateToken(toLogin);
       return "logeado con exito, tu token es: " + token;
     } else {
-      return { success: false, message: "La contraseña ingresada es incorrecta" };
+      return {
+        success: false,
+        message: "La contraseña ingresada es incorrecta",
+      };
     }
   }
 };

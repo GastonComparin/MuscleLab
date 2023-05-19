@@ -13,7 +13,6 @@ const getDetailLessonHandler = async (req, res) => {
         .json({ mensaje: "Acceso denegado. Token no proporcionado." });
     } else {
       jwt.verify(token, "secretKey", (error, authData) => {
-        console.log(authData);
         if (!authData.isAdmin) {
           return res
             .status(403)
