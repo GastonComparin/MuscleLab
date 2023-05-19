@@ -9,19 +9,20 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState("");
 
   const handleLogin = async () => {
+    console.log("handlelogin");
     if (!email || !password) {
       alert("complete los campos");
     } else {
       try {
-        const response = await axios.post(
-          "https://musclelabii.onrender.com/users/login",
-          {
-            email,
-            password,
-          }
-        );
+        const response = await axios.post("http://localhost:3001/users/login", {
+          email,
+          password,
+        });
 
         if (response.data.login.success) {
+          localStorage.setItem("token", response.data.login.token);
+          console.log(localStorage.getItem("token"));
+          
           window.location.href = "/";
         } else if (
           response.data.login.message ===

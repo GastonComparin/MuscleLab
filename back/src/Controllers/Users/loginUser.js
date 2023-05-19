@@ -16,7 +16,8 @@ const userLogin = async (email, password) => {
     const match = await bcryptjs.compare(password, toLogin.password);
     if (match) {
       const token = generateToken(toLogin);
-      return "logeado con exito, tu token es: " + token;
+      console.log(token);
+      return { success: true, token: token };
     } else {
       return {
         success: false,

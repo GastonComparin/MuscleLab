@@ -1,5 +1,5 @@
 
-export const URL = 'https://musclelabii.onrender.com';
+export const URL = 'http://localhost:3001';
 export const fulfilled = 'fulfilled';
 export const pending = 'loading';
 export const rejected = 'rejected';

@@ -40,7 +40,7 @@ const CreateLesson = () => {
   });
   //!FUNCIONES
   const submitHandler = (e) => {
-    console.log("imprimi esto ",form.goals);
+    
     e.preventDefault();
 
     if (

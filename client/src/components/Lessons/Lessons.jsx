@@ -17,7 +17,6 @@ const Lessons = () => {
     const handleRetryClick = () => {
         setRetryButton(true);
     };
-    
     useEffect(() => {
         window.scrollTo({top: 0, left:0, behavior: 'auto'})
         dispatch(fetchAllLessons());

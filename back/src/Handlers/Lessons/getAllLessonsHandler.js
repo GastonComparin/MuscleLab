@@ -13,6 +13,7 @@ const getAllLessonsHandler = async (req, res) => {
     } else {
       jwt.verify(token, "secretKey", (error, authData) => {
         if (!authData.isAdmin) {
+          console.log("tutoken no sirtve");
           return res.status(403).json({
             mensaje: "Acceso denegado, no tienes permisos correspondientes",
           });
@@ -21,6 +22,7 @@ const getAllLessonsHandler = async (req, res) => {
       });
     }
   } catch (error) {
+    
     res.status(400).json({ error: error.message });
   }
 };
