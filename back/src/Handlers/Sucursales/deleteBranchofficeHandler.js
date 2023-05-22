@@ -1,4 +1,4 @@
-const deleteBranchOffice = require("../../Controllers/Prueba/deleteBranchoffice");
+const deleteBranchOffice = require("../../Controllers/Sucursales/deleteBranchoffice");
 const deleteMyBranchOffice = async (req, res) => {
   const { id } = req.params;
   try {

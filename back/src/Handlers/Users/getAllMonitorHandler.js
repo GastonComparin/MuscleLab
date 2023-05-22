@@ -1,7 +1,6 @@
 const getMonitor = require("../../Controllers/Users/getMonitor");
 
 const getAllMonitor = async (req, res) => {
-  console.log("entramos al hanlder");
   try {
     let monitor = await getMonitor();
     res.status(200).json({ monitor: monitor });

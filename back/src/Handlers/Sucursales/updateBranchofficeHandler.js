@@ -1,4 +1,4 @@
-const updateBranchOffice = require("../../Controllers/Prueba/updateBranchoffice");
+const updateBranchOffice = require("../../Controllers/Sucursales/updateBranchoffice");
 const updateMyBranchOffice = async (req, res) => {
   const { id } = req.params;
   const { name, location, scheduleDays, scheduleHours } = req.body;
