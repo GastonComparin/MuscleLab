@@ -12,7 +12,7 @@ const updateLesson = async (id, effort, shortDescription, image, goals, name, de
       name:name,
       id:{[Op.not]:id}
     }
-  });
+  });  
   const foundedLesson = await Lessons.findOne({
     where:{
       id:foundedDetail.lessonId
