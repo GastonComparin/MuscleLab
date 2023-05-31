@@ -10,16 +10,14 @@ const PlanDashEditar = () => {
   
 
   const [addPlan, setPlan] = useState({
-      name:"",
-        price:"",
+      
         benefits:"",
         duration:"",
   });
 
 
   const [errors, setErrors] = useState({
-    name:"",
-    price:"",
+    
     benefits:"",
     duration:"",
   });
@@ -32,23 +30,9 @@ const PlanDashEditar = () => {
  
 
   const validarFormulario = () => {
-    const regexNombre = /^[A-Za-z\s,]+$/;
-    const regexBenefits = /^[A-Za-z0-9\s]+$/;
     const regexDuracion = /^[1-9][0-9]*$/;
     const regexPrecio = /^\d+(\.\d{1,2})?$/;
     let errors = {};
-
-    if (addPlan.name.trim() === "") {
-      errors.name = "El campo de nombre es requerido.";
-    } else if (!regexNombre.test(addPlan.name)) {
-      errors.name = "El nombre debe contener solo letras.";
-    }
-  
-    if (addPlan.benefits.trim() === "") {
-      errors.benefits = "El campo de beneficios es requerido.";
-    } else if (!regexBenefits.test(addPlan.benefits)) {
-      errors.benefits = "Los beneficios debe contener letras y números sin caracteres especiales.";
-    }
   
     if (addPlan.duration.trim() === "") {
       errors.duration = "El campo de duracion es requerido.";
@@ -144,31 +128,6 @@ const PlanDashEditar = () => {
       </div>
 
 
-      
-        <div className={style.Description}>
-          <label htmlFor="name" className={style.texto}>Nombre: *</label>
-          <input
-            type="text"
-            placeholder="Nombre..."
-            value={addPlan.name}
-            onChange={handleChange}
-            name="name"
-          />
-        </div>
-
-        {errors.name && <p>{errors.name}</p>}
-
-
-        <div className={style.Description}>
-          <label htmlFor="benefits" className={style.texto}>Beneficios: *</label>
-          <input
-            type="text"
-            placeholder="Beneficios..."
-            value={addPlan.benefits}
-            onChange={handleChange}
-            name="benefits"
-          />
-        </div>
 
         {errors.benefits && <p>{errors.benefits}</p>}
 
@@ -180,7 +139,7 @@ const PlanDashEditar = () => {
             placeholder="Duracion..."
             value={addPlan.duration}
             onChange={handleChange}
-            name="duracion"
+            name="duration"
           />
         </div>
 

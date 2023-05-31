@@ -120,8 +120,7 @@ const DetailLesson = () => {
                 </div>
 
                 <div className={style.fondoBrad}>
-                  <img src={brad} alt="instructor" className={style.img} />
-                  <h2 className={style.instructor}>Instructor:</h2>
+                  
                   <h2 className={style.instructor}>{lesson?.monitors}</h2>
                 </div>
               </div>

@@ -1,12 +1,16 @@
+
+
 .BGContainer
 {
     margin-top: 2rem;    
     display: flex;
     flex-wrap: wrap;
-    height: 60vh;
+    height: 95%;
     position: absolute;
     display: inline-block;
+    overflow-y: scroll;
     width: 100%;
+    
 }
 
 .TitleContainer h1{
